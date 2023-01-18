@@ -59,12 +59,15 @@ type JsonData struct {
 	QueryTimeout string `yaml:"queryTimeout,omitempty"`
 	HttpMethod   string `yaml:"httpMethod,omitempty"`
 	TimeInterval string `yaml:"timeInterval,omitempty"`
+	TLSSkipVerify bool `yaml:"tlsSkipVerify,omitempty"`
+	HTTPHeaderName1 string  `yaml:"httpHeaderName1,omitempty"`
 }
 
 type SecureJsonData struct {
 	TLSCACert     string `yaml:"tlsCACert,omitempty"`
 	TLSClientCert string `yaml:"tlsClientCert,omitempty"`
 	TLSClientKey  string `yaml:"tlsClientKey,omitempty"`
+	HTTPHeaderValue1 string  `yaml:"httpValueName1,omitempty"`
 }
 
 // GenerateGrafanaDataSource is used to generate the GrafanaDatasource as a secret.
@@ -111,6 +114,24 @@ func GenerateGrafanaDataSource(
 				JSONData: &JsonData{
 					QueryTimeout: "300s",
 					TimeInterval: fmt.Sprintf("%ds", DynamicTimeInterval),
+				},
+			},
+			{
+				Name:      "Loki",
+				Type:      "loki",
+				Access:    "proxy",
+				IsDefault: false,
+				URL: fmt.Sprintf(
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+				),
+				JSONData: &JsonData{
+					QueryTimeout: "300s",
+					TimeInterval: "5s",
+					TLSSkipVerify: true,
+					HTTPHeaderName1: "X-Scope-OrgID",
+				},
+				SecureJSONData: &JSecureJsonData{
+					HTTPHeaderValue1: "application",
 				},
 			},
 		},
