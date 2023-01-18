@@ -60,7 +60,7 @@ spec:
         - mountPath: /var/lib/grafana
           name: grafana-storage
         - mountPath: /etc/grafana/provisioning/datasources
-          name: grafana-datasources
+          name: grafana-dev-datasources
         - mountPath: /etc/grafana
           name: grafana-config
       - name: grafana-dashboard-loader
@@ -121,7 +121,7 @@ spec:
       volumes:
       - emptyDir: {}
         name: grafana-storage
-      - name: grafana-datasources
+      - name: grafana-dev-datasources
         secret:
           defaultMode: 420
           secretName: grafana-dev-datasources
