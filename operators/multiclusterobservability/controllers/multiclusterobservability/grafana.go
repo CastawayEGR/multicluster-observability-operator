@@ -130,7 +130,7 @@ func GenerateGrafanaDataSource(
 					TLSSkipVerify: true,
 					HTTPHeaderName1: "X-Scope-OrgID",
 				},
-				SecureJSONData: &JSecureJsonData{
+				SecureJSONData: &SecureJsonData{
 					HTTPHeaderValue1: "application",
 				},
 			},
@@ -148,7 +148,7 @@ func GenerateGrafanaDataSource(
 					TLSSkipVerify: true,
 					HTTPHeaderName1: "X-Scope-OrgID",
 				},
-				SecureJSONData: &JSecureJsonData{
+				SecureJSONData: &SecureJsonData{
 					HTTPHeaderValue1: "infrastructure",
 				},
 			},
@@ -166,7 +166,7 @@ func GenerateGrafanaDataSource(
 					TLSSkipVerify: true,
 					HTTPHeaderName1: "X-Scope-OrgID",
 				},
-				SecureJSONData: &JSecureJsonData{
+				SecureJSONData: &SecureJsonData{
 					HTTPHeaderValue1: "audit",
 				},
 			},
