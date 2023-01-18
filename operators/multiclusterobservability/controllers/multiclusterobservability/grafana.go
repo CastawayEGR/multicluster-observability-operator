@@ -121,7 +121,7 @@ func GenerateGrafanaDataSource(
 
 	dsSecret := &corev1.Secret{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      "grafana-datasources",
+			Name:      "grafana-dev-datasources",
 			Namespace: config.GetDefaultNamespace(),
 		},
 		Type: "Opaque",
