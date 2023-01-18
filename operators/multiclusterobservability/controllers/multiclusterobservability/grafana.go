@@ -134,6 +134,42 @@ func GenerateGrafanaDataSource(
 					HTTPHeaderValue1: "application",
 				},
 			},
+			{
+				Name:      "Loki (Infrastructure)",
+				Type:      "loki",
+				Access:    "proxy",
+				IsDefault: false,
+				URL: fmt.Sprintf(
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+				),
+				JSONData: &JsonData{
+					QueryTimeout: "300s",
+					TimeInterval: "5s",
+					TLSSkipVerify: true,
+					HTTPHeaderName1: "X-Scope-OrgID",
+				},
+				SecureJSONData: &JSecureJsonData{
+					HTTPHeaderValue1: "infrastructure",
+				},
+			},
+			{
+				Name:      "Loki (Audit)",
+				Type:      "loki",
+				Access:    "proxy",
+				IsDefault: false,
+				URL: fmt.Sprintf(
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+				),
+				JSONData: &JsonData{
+					QueryTimeout: "300s",
+					TimeInterval: "5s",
+					TLSSkipVerify: true,
+					HTTPHeaderName1: "X-Scope-OrgID",
+				},
+				SecureJSONData: &JSecureJsonData{
+					HTTPHeaderValue1: "audit",
+				},
+			},
 		},
 	})
 	if err != nil {
