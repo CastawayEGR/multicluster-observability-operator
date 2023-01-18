@@ -122,7 +122,7 @@ func GenerateGrafanaDataSource(
 				Access:    "proxy",
 				IsDefault: false,
 				URL: fmt.Sprintf(
-					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100",
 				),
 				JSONData: &JsonData{
 					QueryTimeout: "300s",
@@ -140,7 +140,7 @@ func GenerateGrafanaDataSource(
 				Access:    "proxy",
 				IsDefault: false,
 				URL: fmt.Sprintf(
-					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100",
 				),
 				JSONData: &JsonData{
 					QueryTimeout: "300s",
@@ -158,7 +158,7 @@ func GenerateGrafanaDataSource(
 				Access:    "proxy",
 				IsDefault: false,
 				URL: fmt.Sprintf(
-					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100"
+					"https://logging-loki-query-frontend-http.openshift-logging.svc.cluster.local:3100",
 				),
 				JSONData: &JsonData{
 					QueryTimeout: "300s",
